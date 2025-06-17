@@ -80,7 +80,7 @@ const DashCalender = () => {
           <GoArrowRight />
         </button>
       </div>
-      <div className="grid grid-cols-7 text-center text-xs p-1 font-medium mt-2">
+      <div className="grid grid-cols-7 text-center text-orange-600 text-xs p-1 font-medium mt-2">
         {dayOfWeek.map((days) => (
           <div key={days}>{days}</div>
         ))}

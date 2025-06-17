@@ -32,7 +32,7 @@ const weatherIcons = {
 const DashWeather = () => {
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [icon, setIcon] = useState(weatherIcons["01d"]);
-  const [city, setCity] = useState('Trichy')
+  const [city, setCity] = useState('Bengaluru')
   const [temp, setTemp] = useState(0);
 
   useEffect(() => {
@@ -54,26 +54,26 @@ const DashWeather = () => {
   }, [weatherInfo]);
 
   return (
-    <div className="w-full h-auto  mt-2">
+    <div className="w-full h-auto mt-2">
       {weatherInfo ? (
-        <div className="w-full h-auto grid grid-cols-2 grid-rows-2 items-center justify-center p-2">
-          <div className="col-span-1 row-span-2 flex flex-col items-center">
-            <p className="text-3xl">{temp}&deg;</p>
-            <p className="text-xs">{city}</p>
+        <div className="grid items-center justify-center w-full h-auto grid-cols-2 grid-rows-2 p-2">
+          <div className="flex items-center justify-center col-span-1 row-span-2 gap-2">
+            <p className="text-3xl font-light">{temp}&deg;</p>
+            <p className="font-medium text-md">{city}</p>
 
           </div>
-          <div className="col-span-1 row-span-1 flex items-center justify-around">
-          <p className="text-xl text-gray-700">{icon}</p>
-          <p className="text-xs font-medium text-gray-700  capitalize">{` ${weatherInfo.weather[0].description}`}</p>
+          <div className="flex items-center justify-around col-span-1 row-span-1">
+          <p className="text-sm text-gray-700">{icon}</p>
+          <p className="text-xs font-medium text-gray-700 capitalize">{` ${weatherInfo.weather[0].description}`}</p>
           </div>
-          <div className="col-span-1  row-span-1 flex space-x-2 mt-2">
-            <div className="flex items-center gap-1 text-gray-700">
+          {/* <div className="flex col-span-1 row-span-1 gap-3 mt-2">
+            <div title="Humidity" className="flex items-center gap-1 text-gray-700">
             <IoWater size={16}/><p className="text-xs">{weatherInfo.main.humidity}%</p>
             </div>
-            <div className="flex items-center gap-1 text-gray-700">
+            <div title="Wind Speed" className="flex items-center gap-1 text-gray-700">
             <FaWind size={16}/><p className="text-xs">{weatherInfo.wind.speed}km/h</p>
             </div>
-          </div>
+          </div> */}
         </div>
       ) : (
         <p>Loading</p>
